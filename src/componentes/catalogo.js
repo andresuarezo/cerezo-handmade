@@ -97,7 +97,7 @@ return( <>
 </figure>
 <H>{resul.name}</H>
 <Link to={`/item/${resul.id}`}><Demas>
-  Detalle Del Producto
+  Detalle Del Productos
  </Demas></Link>
 </Produc>) }
 
