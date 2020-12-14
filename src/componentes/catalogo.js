@@ -1,22 +1,36 @@
 import React , {useState, useEffect} from 'react';
-import datos from './Inventario';
+import axios from 'axios';
+import '../App.css';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import useContexto from './cartContext';
-import {getFirestore} from '../Firebase/indes';
-import { useParams} from 'react-router-dom';
- 
+import { useParams} from 'react-router';
+
+
 const H= styled.h1`
 margin:0px;
 font-size:1.2em;
 `; 
+
 const Produc= styled.article` 
-  width:19em;
-  text-align:center;
+  width:20em;
 margin: auto;
 display:grid;
 grid-template-rows: 1fr auto;
 grid-template-columns:100%;
+
+figure{
+  height:100%;
+  width: 100%;
+  grid-row: 1;
+  margin: 0;
+
+  img { 
+    height: auto;
+    width: 100%;
+    padding-top: 15%;
+  }
+}
 `;
 const Demas = styled.button`
 width:100%;
@@ -28,46 +42,65 @@ padding:0.5em;
 `;
 
 function Catalogo(){
-const [cats, setCats]=useState();
-const [result , setTodo ]= useState([]);
+const [result , setTodo ] = useState([]);
 const { setItem} = useContexto();
 const [load ,setLoad] = useState();
- const {catId} =useParams();
-useEffect( () => {
-  setCats(catId);
-  setLoad(true);
-    const db = getFirestore();
-    let itemColec = db.collection('items');
-
-    let filtra = catId ? itemColec.where('categoria', '==', cats) : itemColec;
-    
-      filtra.get().then( (querySnapshot) => {
-       
-alert(cats);
-    if(querySnapshot.size===0){
-      alert('aquí no hay nada')
-    }
-      setLoad(false); 
-      setTodo(querySnapshot.docs.map( m => ({...m.data(), id: m.id })));
-    });
-
-  },[cats]);
+ const {catId} = useParams();
  
-const  Cargando = ({load}) => (load===true) ? <H style={{marginTop:'300px'}}>Loading</H> :
- result.map( resul => 
- (<Produc>
-<figure style={{height:'100%', width:'100%',
-   gridRow:'1',margin:'0'}}>
-<img style={{height:'70%',width:'100%',
-    paddingTop:'35%',}} src={resul.vista} href={resul.vista} alt={resul.vista}/>
+useEffect( () => {
+
+  setLoad(true);
+  
+
+  const obTenedor = async () =>{
+    try{
+    const pieza = await axios.get('http://localhost:4000/piezax');
+        if(catId){
+          const resul =   pieza.data.filter(pie =>  pie.categoria === catId );
+          setTodo(resul);
+          setLoad(false); 
+        }else{
+    setTodo(pieza.data);
+    setLoad(false); 
+        }
+    } catch (err){
+      console.log(err);
+    }
+  }
+  
+  window.scrollTo(0,0);
+  obTenedor();
+  },[catId]);
+ 
+// const  Cargando = ({load}) => (load===true) ? :
+//  result.map( (resul, i) =>  
+//  (<Produc key={i}>
+// <figure >
+// <img  src={resul.vista}  href={resul.vista}alt={resul.vista}/>
+// </figure>
+// <H>{resul.name}</H>
+// <Link to={`/item/${resul.id}`}><Demas>
+//   Detalle Del Producto{resul.Nombre}
+//  </Demas></Link>
+// </Produc>));
+
+return( <>
+{/* <div style={{marginTop:'1.5em', width:'90%'}}>
+  <Cargando load={load}/>
+  </div> */}
+   {load === true && <H style={{marginTop:'300px', height: '100vh', width:'100%'}}>Loading</H> }
+
+   { load === false && result.map( (resul, i) =>  
+ <Produc key={i}>
+<figure >
+<img  src={resul.vista}  href={resul.vista}alt={resul.vista}/>
 </figure>
-<H>{resul.Nombre}</H>
-<Link to={`/item/${resul.id}`}><Demas onClick={()=> setItem(resul)}>
+<H>{resul.name}</H>
+<Link to={`/item/${resul.id}`}><Demas>
   Detalle Del Producto
  </Demas></Link>
-</Produc>));
-return( <>
-  <Cargando load={load}/>
+</Produc>) }
+
    </>);
 }
 export default Catalogo;

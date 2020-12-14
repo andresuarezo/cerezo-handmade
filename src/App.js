@@ -7,6 +7,7 @@ import Home from './componentes/Home';
 import { CartContextProvider} from './componentes/cartContext';
 import ItemContainer from './componentes/ItemDetailContainer';
 import CartView from './componentes/CartView';
+import Footer from './componentes/Footer';
 function App() {
   return (<>
 <BrowserRouter>
@@ -16,14 +17,15 @@ function App() {
      <Route exact path='/'>
        <Home />
      </Route>
+     
+     <Route  path='/catalogo/:catId'>
+      <Catalogo/>
+     </Route>
 
      <Route  path='/catalogo'>
       <Catalogo/>
      </Route>
 
-     <Route  path='/catalogo/:catId'>
-      <Catalogo/>
-     </Route>
 
      <Route path='/item/:id'>
       <ItemContainer  />
@@ -32,8 +34,8 @@ function App() {
      <Route path='/Cart'>
       <CartView/>
      </Route>
-     
    </Switch>
+   <Footer />
   </CartContextProvider>
 </BrowserRouter>
   </>

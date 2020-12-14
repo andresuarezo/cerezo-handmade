@@ -1,5 +1,6 @@
-import React , { useState, useContext }  from 'react';
+import React , {useState}  from 'react';
 import styled from 'styled-components';
+import useContexto from './cartContext';
 
 
 
@@ -24,28 +25,31 @@ padding:0.5em;
 `;
 
 
-function CartCounter({min, max,inicial,acxion,clasiName,onChange}){
-    
+function CartCounter({min, max,acxion,clasiName,onChange}){
+
    
-  var [counter, setCounter] = useState(inicial);
-    const restar = () =>{if(counter>min) {
-        setCounter(counter - 1);}
-       
-    };
-    const sumar = () =>{if(counter<max) {
-                     setCounter(counter + 1);}
-                   
-                    };
+const {setCantida,count, setCart}=useContexto();
+
+
+    const restar = () =>{if(count>min) 
+        setCart(count - 1);
+      }
+    const sumar= () => { if(count < max)
+                      setCart(count+1);
                     
-  
+                    }
+               
+                    
+  setCantida(count);
     return (
         <div className={clasiName} style={{margin:'0 auto 2.5rem',display:'flexbox'}}>
-        <h5 style={{flexDirection:'row', textAlign:'center',fontSize:'1rem',margin:'0'}}>{counter}</h5>
-        
-<Sumador  onClick={restar} disabled={(counter===min)} >-</Sumador>
-<Sumador  onClick={sumar} disabled={(counter===max)}>+</Sumador>
+        <h5 style={{flexDirection:'row', textAlign:'center',fontSize:'1rem',margin:'0'}}>
+          {count}
+          </h5>
+    <Sumador type='button'  onClick={restar} disabled={(count===min)}> -</Sumador>
+    <Sumador type='button' onClick={sumar} disabled={(count===max)}>+</Sumador>
         <div style={{flexDirection:'row'}}>
-        <Aniadir type='submit' onClick={()=>onChange(counter)}>{acxion}</Aniadir>
+        <Aniadir type='submit' onClick={()=> onChange(count)}>{acxion}</Aniadir>
         </div>
     </div>
 
