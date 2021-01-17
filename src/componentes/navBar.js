@@ -80,9 +80,8 @@ const Posis = styled.div`
   text-align:center;
   margin:0 auto;
   position:relative;
-
-
-
+  overflow: ${ props => props.rey === '3' ? 'hidden' : null};
+  max-height: 6em;
   :nth-child(3n){
     display: grid;
     grid-template-rows; 1fr 1fr;
@@ -137,12 +136,11 @@ const Barra = styled.ul`
 position:relative;
 display:inline-block;
   grid-row:2;
-  top: ${props => (props.sube === true) ? `0.1em` : '3em'};
-  opacity: ${ props => (props.sube === true) ? 1: 0};
+  transform: ${props => (props.sube === true) ? `translateY(0.1em)` : 'translateX(3em)'};
+  opacity: ${ props => (props.sube === true) ? '1': '0'};
   list-style:none;
   height:100%;
-  transition: top 0.5s 0.1s, opacity 0.3s 0.1s;
-
+  transition: transform 0.5s 0.1s, opacity 0.3s 0.1s;
 
 `;
 

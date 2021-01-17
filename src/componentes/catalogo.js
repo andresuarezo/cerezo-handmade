@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import useContexto from './cartContext';
 import { useParams} from 'react-router';
+import { useScroll } from 'react-use';
 
 
 const H= styled.h1`
@@ -46,6 +47,7 @@ const [result , setTodo ] = useState([]);
 const { setItem} = useContexto();
 const [load ,setLoad] = useState();
  const {catId} = useParams();
+ const [categorias, setCategorias] = useState([]);
  
 useEffect( () => {
 
@@ -53,10 +55,15 @@ useEffect( () => {
   
 
   const obTenedor = async () =>{
-    try{
-    const pieza = await axios.get('http://localhost:4000/piezax');
-        if(catId){
-          const resul =   pieza.data.filter(pie =>  pie.categoria === catId );
+    
+    const pieza = await axios.get('http://localhost:4000/piezax');;
+    try{    
+     if(catId){
+         const resul = pieza.data.filter( p =>
+          { for(let i = 0; i< p.categoria.length; i++) {
+            if(p.categoria[i] === catId)
+             return p;
+          }});
           setTodo(resul);
           setLoad(false); 
         }else{

@@ -1,4 +1,4 @@
- {  "categorias": ["Grandes","Chicos","una-pieza","Doble-Peza", "triple-Pieza"],
+ {  "categorias": ["Grandes","Chicos","una-pieza","dos-pieza", "tres-pieza"],
     "contacto":[{
                 "name": "facebook",
                  "url": "uhfiduhj" 
@@ -14,7 +14,7 @@
              }],  
      "piezax": [{
         "id": "01",
-        "categoria": ["Grandes", "una-pieza"],
+        "categoria": ["Grandes", "dos-pieza"],
         "name": "Cherry Rainbow",
         "costo": 150.50 ,
         "stock": 4,
@@ -23,7 +23,7 @@
         
         }, {
         "id": "08", 
-        "categoria": "Grandes" ,
+        "categoria": ["Grandes", "una-pieza"],
         "name": "Curvis" ,
         "costo": 380,
         "stock": 6,
@@ -31,7 +31,7 @@
         "descrip": "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo" 
         }, {
         "id": "09", 
-        "categoria": "Chicos",
+        "categoria": ["Chicos", "dos-pieza"],
         "name":  "NudArt",
         "costo": 400,
         "stock": 4,
@@ -39,7 +39,7 @@
         "descrip": "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo" 
         }, {
          "id": "10" , 
-         "categoria": "Chicos" ,
+         "categoria": ["Chicos", "una-pieza"] ,
          "name":  "Electric Rainbow",
          "costo": 450,
          "stock": 10,
@@ -47,7 +47,7 @@
          "descrip":"Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo" 
         }, {
         "id": "11", 
-        "categoria": "Grandes" ,
+        "categoria": ["Grandes", "dos-pieza"],
         "name":  "Flacuccini",
         "costo": 500,
         "stock": 5,
@@ -55,7 +55,7 @@
         "descrip":"Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo" 
         },{
         "id": "02", 
-        "categoria":"Chicos",
+        "categoria": ["Chicos", "dos-pieza"],
         "name":  "Chiquis" ,
         "costo": 200,
         "stock": 15,
@@ -64,7 +64,7 @@
         
         }, {
         "id":   "03"  ,
-        "categoria":"Chicos" ,
+        "categoria":["Chicos", "una-pieza"] ,
         "name": "littleshield"   ,
         "costo": 25,
         "stock": 5,
@@ -72,7 +72,7 @@
         "descrip": "un texto sobre dicho articulo es otra manera de representar que todos son diferentes"
         },{
         "id":  "04",
-        "categoria": "Grandes",
+        "categoria": ["Grandes", "dos-pieza"],
         "name":  "Rayin Rayan" ,
         "costo": 15,
         "stock": 10,
@@ -81,7 +81,7 @@
         
         },{
         "id": "05" ,
-        "categoria":"Chicos",
+        "categoria":["Chicos", "dos-pieza"],
         "name": "Marmolado"  ,
         "costo": 60,
         "stock": 10,
@@ -89,7 +89,7 @@
         "descrip": "un texto sobre dicho articulo es otra manera de reprkjssmsskoskesentar que todos son diferentes"
             }, {
         "id": "06",
-        "categoria":"Chicos",
+        "categoria":["Chicos", "dos-pieza"],
         "name": "Chiquis Rayin Rayan"  ,
         "costo": 45,
         "stock": 20,
@@ -98,7 +98,7 @@
 
                 }, {
          "id": "07",
-         "categoria": "Grandes",
+         "categoria": ["Grandes", "dos-pieza"],
          "name": "Chromatic Wave",
          "costo": 85,
          "stock": 4,
@@ -106,7 +106,7 @@
          "descrip": "un texto sobre dicho articulo es otra manera de representar que todos son diferentesdjnsbhdj"
         }, {
             "id":   "12",
-      "categoria":  "Grandes",
+      "categoria":  ["Grandes", "dos-pieza"],
             "name": "Berry Jelou",
             "costo": 500,
             "stock": 4,
@@ -114,7 +114,7 @@
         "descrip":   "un texto sobre dicho articulo es otra manera de representar que todos son diferentesdjnsbhdj"
            },{
             "id":  "13", 
-            "categoria": "Chicos",
+            "categoria":["Chicos", "dos-pieza"],
                  "name": "Wanery",
                  "costo": 400,
                  "stock":10,
@@ -122,7 +122,7 @@
              "descrip":  "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo"
            },{
             "id":  "14" ,
-            "categoria":"Chicos"  ,
+            "categoria":["Chicos", "dos-pieza"]  ,
                  "name": "Little Berry Jelou",
                  "costo": 380,
                  "stock": 5,
@@ -130,7 +130,7 @@
              "descrip":  "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo"
            }, {
             "id":  "15" ,
-            "categoria": "Grandes"  ,
+            "categoria": ["Grandes", "una-pieza"] ,
                  "name": "Middle Path",
                  "costo": 400,
                  "stock": 4,
@@ -138,7 +138,7 @@
              "descrip":  "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo"
            },{
             "id": "16"  ,
-            "categoria": "Chicos"  ,
+            "categoria": ["Chicos", "dos-pieza"] ,
                  "name": "Greenies",
                  "costo": 300,
                  "stock": 5,
@@ -146,7 +146,7 @@
              "descrip":  "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo"
            },{
             "id":  "17" ,
-            "categoria": "Grandes"  ,
+            "categoria":["Grandes", "dos-pieza"] ,
                  "name": "Lolli Leafe",
                  "costo": 450,
                  "stock": 5,
@@ -154,7 +154,7 @@
              "descrip":  "Deliciosa pieza de suma elegancia y nivel de mood como pocas en el mundo suseo"
            },{
             "id": "18",
-            "categoria": "Chicos"  ,
+            "categoria": ["Chicos", "dos-pieza"]  ,
                  "name": "Marmos",
                  "costo": 400,
                  "stock": 5,
